@@ -1,0 +1,191 @@
+/* ==========================================================================
+   DESIGN TOKENS
+   ========================================================================== */
+
+:root {
+    --bg: #0f0f0f;
+    --panel: #000;
+    --accent: #4da3ff;
+    --white: #ffffff;
+
+    --radius: 0.75rem;
+}
+
+/* ==========================================================================
+   RESET / BASE STYLES
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: var(--bg);
+    font-family: system-ui, sans-serif;
+}
+
+/* ==========================================================================
+   SLIDER LAYOUT
+   ========================================================================== */
+
+.slider {
+    width: 100%;
+    max-width: 57.5rem;
+    background: var(--panel);
+    border: 0.25rem solid #222;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+/* Hide radio inputs (CSS-only state control) */
+input {
+    display: none;
+}
+
+/* ==========================================================================
+   SLIDES VIEWPORT
+   ========================================================================== */
+
+.viewport {
+    width: 100%;
+    height: 55vh;
+    min-height: 25rem;
+    overflow: hidden;
+}
+
+.track {
+    display: flex;
+    width: 500%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.slide {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Radio hack: slide switching logic */
+#s1:checked ~ .viewport .track { transform: translateX(0%); }
+#s2:checked ~ .viewport .track { transform: translateX(-20%); }
+#s3:checked ~ .viewport .track { transform: translateX(-40%); }
+#s4:checked ~ .viewport .track { transform: translateX(-60%); }
+#s5:checked ~ .viewport .track { transform: translateX(-80%); }
+
+/* ==========================================================================
+   CONTROLS SECTION
+   ========================================================================== */
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* ==========================================================================
+   CAPTIONS
+   ========================================================================== */
+
+.caption {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    color: #fff;
+    font-size: 1.25rem;
+    transition: opacity 0.4s ease;
+}
+
+/* Sync captions with active slide */
+#s1:checked ~ .controls .c1,
+#s2:checked ~ .controls .c2,
+#s3:checked ~ .controls .c3,
+#s4:checked ~ .controls .c4,
+#s5:checked ~ .controls .c5 {
+    opacity: 1;
+    max-height: 5rem;
+}
+
+/* ==========================================================================
+   NAVIGATION DOTS
+   ========================================================================== */
+
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+
+/* Base dot (inactive state) */
+.dot {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+
+    background: var(--accent);
+    border: 0.1rem solid var(--accent);
+
+    transition: 0.25s ease;
+}
+
+/* Hover state */
+.dot:hover {
+    background: var(--white);
+    border-color: var(--white);
+}
+
+/* Active dot (radio checked state) */
+#s1:checked ~ .controls .d1,
+#s2:checked ~ .controls .d2,
+#s3:checked ~ .controls .d3,
+#s4:checked ~ .controls .d4,
+#s5:checked ~ .controls .d5 {
+    background: var(--bg);
+    border-color: var(--accent);
+}
+
+/* Active dot hover refinement */
+#s1:checked ~ .controls .d1:hover,
+#s2:checked ~ .controls .d2:hover,
+#s3:checked ~ .controls .d3:hover,
+#s4:checked ~ .controls .d4:hover,
+#s5:checked ~ .controls .d5:hover {
+    border-color: var(--white);
+}
+
+/* ==========================================================================
+   MOBILE ADAPTATION
+   ========================================================================== */
+
+@media (max-width: 48rem) {
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav {
+        justify-content: center;
+    }
+
+    .caption {
+        text-align: center;
+    }
+}

@@ -1,10 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Mem Slider</title>
+  <link rel="stylesheet" href="./styles/style.css">
 </head>
+
 <body>
+
+<main class="slider">
+
+  <input type="radio" name="slider" id="s1" checked>
+  <input type="radio" name="slider" id="s2">
+  <input type="radio" name="slider" id="s3">
+  <input type="radio" name="slider" id="s4">
+  <input type="radio" name="slider" id="s5">
+
+  <div class="viewport">
+    <div class="track">
+      <div class="slide"><img src="assets/meme-1.jpg" alt="Meme-1"></div>
+      <div class="slide"><img src="assets/meme-2.jpg" alt="Meme-2"></div>
+      <div class="slide"><img src="assets/meme-3.jpg" alt="Meme-3"></div>
+      <div class="slide"><img src="assets/meme-4.webp" alt="Meme-4"></div>
+    </div>
+  </div>
+
+  <section class="controls">
+
+    <div class="captions">
+      <p class="caption c1">I'm best of the best!</p>
+      <p class="caption c2">Caption 2</p>
+      <p class="caption c3">Caption 3</p>
+      <p class="caption c4">Caption 4</p>
+      <p class="caption c5">Caption 5</p>
+    </div>
+
+    <nav class="nav" aria-label="Slider navigation">
+      <label for="s1" class="dot d1"></label>
+      <label for="s2" class="dot d2"></label>
+      <label for="s3" class="dot d3"></label>
+      <label for="s4" class="dot d4"></label>
+      <label for="s5" class="dot d5"></label>
+    </nav>
+
+  </section>
+</main>
 
 </body>
 </html>
