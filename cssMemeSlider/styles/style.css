@@ -170,3 +170,22 @@ input {
 #s5:checked ~ .controls .d5:hover {
     border-color: var(--white);
 }
+
+/* ==========================================================================
+   MOBILE ADAPTATION
+   ========================================================================== */
+
+@media (max-width: 48rem) {
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav {
+        justify-content: center;
+    }
+
+    .caption {
+        text-align: center;
+    }
+}
