@@ -5,12 +5,6 @@ A fully functional image slider built with only HTML and CSS (zero JavaScript).
 
 ---
 
-## Demo
-
-![demo](./cssMemeSlider/assets/demo.gif)
-
----
-
 ## Deploy
 
 [Live Demo](https://alexander-domanov.github.io/cssMemeSlider/cssMemeSlider/index.html)
